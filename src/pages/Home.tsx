@@ -209,7 +209,7 @@ const Home = () => {
           </div>
           
           <p className="text-muted-foreground">
-            Empowering local artisans with AI technology. Built for the GenAI Exchange Hackathon by Google.
+            Empowering local artisans with AI technology.
           </p>
         </div>
       </footer>

@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI } from "@google/genai";
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
@@ -6,7 +6,7 @@ if (!API_KEY) {
   console.warn('Gemini API key not found. Please add VITE_GEMINI_API_KEY to your .env file.');
 }
 
-export const genAI = API_KEY ? new GoogleGenerativeAI(API_KEY) : null;
+export const genAI = API_KEY ? new GoogleGenAI({ apiKey: API_KEY }) : null;
 
 export interface ProductListing {
   title: string;
@@ -32,15 +32,13 @@ export interface CustomerReply {
 }
 
 export class GeminiService {
-  private model = genAI?.getGenerativeModel({ model: 'gemini-pro' });
-
   async generateProductListing(
     title: string,
     description: string,
     price: string,
     category: string
   ): Promise<ProductListing> {
-    if (!this.model) {
+    if (!genAI) {
       throw new Error('Gemini API not configured. Please add your API key to .env file.');
     }
 
@@ -73,9 +71,11 @@ Focus on:
 Return only valid JSON without any markdown formatting.`;
 
     try {
-      const result = await this.model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await genAI.models.generateContent({
+        model: "gemini-2.0-flash-exp",
+        contents: prompt,
+      });
+      const text = result.text;
       
       // Clean the response to ensure it's valid JSON
       const cleanedText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
@@ -90,7 +90,7 @@ Return only valid JSON without any markdown formatting.`;
     productCategory: string,
     userGoals: string[] = []
   ): Promise<BusinessTip[]> {
-    if (!this.model) {
+    if (!genAI) {
       throw new Error('Gemini API not configured. Please add your API key to .env file.');
     }
 
@@ -120,9 +120,11 @@ Focus on:
 Return only valid JSON array without markdown formatting.`;
 
     try {
-      const result = await this.model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await genAI.models.generateContent({
+        model: "gemini-2.0-flash-exp",
+        contents: prompt,
+      });
+      const text = result.text;
       
       const cleanedText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
       return JSON.parse(cleanedText);
@@ -136,7 +138,7 @@ Return only valid JSON array without markdown formatting.`;
     productType: string,
     commonQuestions: string[] = []
   ): Promise<CustomerReply[]> {
-    if (!this.model) {
+    if (!genAI) {
       throw new Error('Gemini API not configured. Please add your API key to .env file.');
     }
 
@@ -174,9 +176,11 @@ Make responses:
 Return only valid JSON array without markdown formatting.`;
 
     try {
-      const result = await this.model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await genAI.models.generateContent({
+        model: "gemini-2.0-flash-exp",
+        contents: prompt,
+      });
+      const text = result.text;
       
       const cleanedText = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
       return JSON.parse(cleanedText);
@@ -190,7 +194,7 @@ Return only valid JSON array without markdown formatting.`;
     message: string,
     context: { products: any[], previousMessages: string[] } = { products: [], previousMessages: [] }
   ): Promise<string> {
-    if (!this.model) {
+    if (!genAI) {
       throw new Error('Gemini API not configured. Please add your API key to .env file.');
     }
 
@@ -220,9 +224,11 @@ Keep responses:
 Response:`;
 
     try {
-      const result = await this.model.generateContent(prompt);
-      const response = await result.response;
-      return response.text();
+      const result = await genAI.models.generateContent({
+        model: "gemini-2.0-flash-exp",
+        contents: prompt,
+      });
+      return result.text;
     } catch (error) {
       console.error('Error in chat assistant:', error);
       throw new Error('Failed to get chat response. Please try again.');
