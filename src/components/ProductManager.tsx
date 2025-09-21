@@ -30,6 +30,21 @@ export const ProductManager = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
+  // Get currency symbol based on user's region setting
+  const getCurrencySymbol = () => {
+    const savedSettings = localStorage.getItem('karigar_settings');
+    if (savedSettings) {
+      const settings = JSON.parse(savedSettings);
+      switch (settings.region) {
+        case 'IN': return '₹';
+        case 'GB': return '£';
+        case 'EU': return '€';
+        default: return '$';
+      }
+    }
+    return '$'; // Default to USD
+  };
+
   const categories = [
     'Pottery & Ceramics',
     'Textiles & Weaving',
@@ -293,7 +308,7 @@ export const ProductManager = () => {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="price">Price (₹) *</Label>
+                      <Label htmlFor="price">Price ({getCurrencySymbol()}) *</Label>
                       <Input
                         id="price"
                         type="number"
@@ -543,7 +558,7 @@ export const ProductManager = () => {
                 <p className="text-muted-foreground text-sm mb-3 line-clamp-3">{product.description}</p>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">₹{product.price}</span>
+                  <span className="text-2xl font-bold text-primary">{getCurrencySymbol()}{product.price}</span>
                   <Badge variant="outline" className="text-xs">
                     {product.views} views
                   </Badge>

@@ -88,6 +88,62 @@ export const BusinessTips = () => {
         description: 'Respond promptly to customer inquiries and provide personalized service. Consider offering customization options for special orders.',
         category: 'general',
         priority: 'low'
+      },
+      {
+        id: '6',
+        title: 'Increase Online Sales with Social Media',
+        description: 'Leverage Instagram and Facebook to showcase your products. Use relevant hashtags and engage with your community to boost online sales.',
+        category: 'marketing',
+        priority: 'high'
+      },
+      {
+        id: '7',
+        title: 'Build Brand Awareness Through Consistency',
+        description: 'Maintain consistent branding across all platforms. Use the same logo, colors, and messaging to build brand recognition and awareness.',
+        category: 'marketing',
+        priority: 'medium'
+      },
+      {
+        id: '8',
+        title: 'Professional Product Photography Tips',
+        description: 'Invest in good lighting and learn basic photography techniques. High-quality photos significantly improve product photography and sales.',
+        category: 'marketing',
+        priority: 'high'
+      },
+      {
+        id: '9',
+        title: 'Expand to New Markets Online',
+        description: 'Research international shipping options and market preferences. Consider translating product descriptions to expand to new markets.',
+        category: 'platform',
+        priority: 'medium'
+      },
+      {
+        id: '10',
+        title: 'Reduce Costs with Bulk Material Purchases',
+        description: 'Buy materials in bulk to reduce costs per unit. Partner with other artisans for group purchases to get better wholesale rates.',
+        category: 'pricing',
+        priority: 'medium'
+      },
+      {
+        id: '11',
+        title: 'Improve Customer Service Response Time',
+        description: 'Set up automated responses for common questions. Quick customer service responses lead to better reviews and repeat customers.',
+        category: 'general',
+        priority: 'high'
+      },
+      {
+        id: '12',
+        title: 'Seasonal Promotions Strategy',
+        description: 'Plan seasonal promotions around festivals and holidays. Create limited-time offers to boost sales during peak seasons.',
+        category: 'marketing',
+        priority: 'high'
+      },
+      {
+        id: '13',
+        title: 'Build Social Media Presence',
+        description: 'Post regularly on social media platforms. Share behind-the-scenes content and engage with followers to build your social media presence.',
+        category: 'marketing',
+        priority: 'medium'
       }
     ];
     setTips(sampleTips);
@@ -133,9 +189,31 @@ export const BusinessTips = () => {
     }
   };
 
-  const filteredTips = tips.filter(tip => 
-    selectedCategory === 'all' || tip.category === selectedCategory
-  );
+  const filteredTips = tips.filter(tip => {
+    const categoryMatch = selectedCategory === 'all' || tip.category === selectedCategory;
+    
+    // If goals are selected, filter tips that are relevant to those goals
+    if (selectedGoals.length > 0) {
+      const goalKeywords = selectedGoals.join(' ').toLowerCase();
+      const tipContent = (tip.title + ' ' + tip.description).toLowerCase();
+      const isRelevantToGoals = selectedGoals.some(goal => {
+        const goalLower = goal.toLowerCase();
+        return tipContent.includes(goalLower) || 
+               tipContent.includes(goalLower.split(' ')[0]) ||
+               (goal.includes('sales') && tipContent.includes('revenue')) ||
+               (goal.includes('brand') && tipContent.includes('marketing')) ||
+               (goal.includes('photo') && tipContent.includes('photo')) ||
+               (goal.includes('market') && tipContent.includes('expand')) ||
+               (goal.includes('cost') && tipContent.includes('pricing')) ||
+               (goal.includes('customer') && tipContent.includes('service')) ||
+               (goal.includes('seasonal') && tipContent.includes('seasonal')) ||
+               (goal.includes('social') && tipContent.includes('social'));
+      });
+      return categoryMatch && isRelevantToGoals;
+    }
+    
+    return categoryMatch;
+  });
 
   const toggleGoal = (goal: string) => {
     setSelectedGoals(prev => 

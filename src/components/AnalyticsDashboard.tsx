@@ -234,7 +234,7 @@ export const AnalyticsDashboard = () => {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <div className="h-300 flex items-center justify-center">
+              <div className="h-[300px] flex items-center justify-center">
                 <p className="text-muted-foreground">No data available yet</p>
               </div>
             )}
@@ -255,8 +255,6 @@ export const AnalyticsDashboard = () => {
                     data={categoryData}
                     cx="50%"
                     cy="50%"
-                    labelLine={false}
-                    label={(props: any) => `${props.name} (${(props.percent * 100).toFixed(0)}%)`}
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="value"
@@ -266,7 +264,6 @@ export const AnalyticsDashboard = () => {
                     ))}
                   </Pie>
                   <Tooltip 
-                    formatter={(value, name, props) => [value, props.payload.fullName]}
                     contentStyle={{
                       backgroundColor: 'hsl(var(--background))',
                       border: '1px solid hsl(var(--border))',
@@ -276,7 +273,7 @@ export const AnalyticsDashboard = () => {
                 </PieChart>
               </ResponsiveContainer>
             ) : (
-              <div className="h-300 flex items-center justify-center">
+              <div className="h-[300px] flex items-center justify-center">
                 <p className="text-muted-foreground">No products added yet</p>
               </div>
             )}
@@ -317,7 +314,7 @@ export const AnalyticsDashboard = () => {
                 </BarChart>
               </ResponsiveContainer>
             ) : (
-              <div className="h-250 flex items-center justify-center">
+              <div className="h-[250px] flex items-center justify-center">
                 <p className="text-muted-foreground">No product data available</p>
               </div>
             )}
@@ -355,7 +352,7 @@ export const AnalyticsDashboard = () => {
                 ))}
               </div>
             ) : (
-              <div className="h-250 flex items-center justify-center">
+              <div className="h-[250px] flex items-center justify-center">
                 <p className="text-muted-foreground">No recent activity</p>
               </div>
             )}

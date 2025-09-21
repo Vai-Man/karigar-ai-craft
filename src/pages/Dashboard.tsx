@@ -10,6 +10,9 @@ import { ProductManager } from '@/components/ProductManager';
 import { BusinessTips } from '@/components/BusinessTips';
 import { ChatAssistant } from '@/components/ChatAssistant';
 import { AnalyticsDashboard } from '@/components/AnalyticsDashboard';
+import { SettingsPanel } from '@/components/SettingsPanel';
+import { BusinessInsights } from '@/components/BusinessInsights';
+import { AIRecommendations } from '@/components/AIRecommendations';
 import { useToast } from '@/hooks/use-toast';
 
 const Dashboard = () => {
@@ -69,7 +72,7 @@ const Dashboard = () => {
             </div>
             
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm" onClick={() => toast({ title: "Settings", description: "Settings panel coming soon!" })}>
+              <Button variant="ghost" size="sm" onClick={() => setActiveTab('settings')}>
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
               </Button>
@@ -86,7 +89,7 @@ const Dashboard = () => {
       <div className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
           {/* Tab Navigation */}
-          <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5 bg-muted/50">
+          <TabsList className="grid w-full grid-cols-8 lg:w-auto lg:grid-cols-8 bg-muted/50">
             <TabsTrigger value="overview" className="flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
               <span className="hidden sm:inline">Overview</span>
@@ -94,6 +97,14 @@ const Dashboard = () => {
             <TabsTrigger value="products" className="flex items-center gap-2">
               <Package className="w-4 h-4" />
               <span className="hidden sm:inline">Products</span>
+            </TabsTrigger>
+            <TabsTrigger value="recommendations" className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4" />
+              <span className="hidden sm:inline">AI Recs</span>
+            </TabsTrigger>
+            <TabsTrigger value="insights" className="flex items-center gap-2">
+              <TrendingUp className="w-4 h-4" />
+              <span className="hidden sm:inline">Insights</span>
             </TabsTrigger>
             <TabsTrigger value="tips" className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4" />
@@ -106,6 +117,10 @@ const Dashboard = () => {
             <TabsTrigger value="analytics" className="flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
               <span className="hidden sm:inline">Analytics</span>
+            </TabsTrigger>
+            <TabsTrigger value="settings" className="flex items-center gap-2">
+              <Settings className="w-4 h-4" />
+              <span className="hidden sm:inline">Settings</span>
             </TabsTrigger>
           </TabsList>
 
@@ -220,6 +235,16 @@ const Dashboard = () => {
             <ProductManager />
           </TabsContent>
 
+          {/* AI Recommendations Tab */}
+          <TabsContent value="recommendations">
+            <AIRecommendations />
+          </TabsContent>
+
+          {/* Business Insights Tab */}
+          <TabsContent value="insights">
+            <BusinessInsights />
+          </TabsContent>
+
           {/* Business Tips Tab */}
           <TabsContent value="tips">
             <BusinessTips />
@@ -233,6 +258,11 @@ const Dashboard = () => {
           {/* Analytics Tab */}
           <TabsContent value="analytics">
             <AnalyticsDashboard />
+          </TabsContent>
+
+          {/* Settings Tab */}
+          <TabsContent value="settings">
+            <SettingsPanel />
           </TabsContent>
         </Tabs>
       </div>

@@ -176,7 +176,7 @@
     background: var(--gradient-card);
   }
 
-  /* Shadows */
+  /* Enhanced shadows */
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
@@ -189,7 +189,7 @@
     box-shadow: var(--shadow-glow);
   }
 
-  /* Transitions */
+  /* Enhanced transitions */
   .transition-smooth {
     transition: var(--transition-smooth);
   }
@@ -198,7 +198,7 @@
     transition: var(--transition-bounce);
   }
 
-  /* Utility classes for Karigar.AI */
+  /* Modern utility classes for Karigar.AI */
   .text-gradient {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -207,14 +207,83 @@
   }
 
   .artisan-card {
-    @apply bg-gradient-card border border-border/50 rounded-lg shadow-soft backdrop-blur-sm;
+    @apply bg-gradient-card border border-border/50 rounded-xl shadow-soft backdrop-blur-sm transition-smooth;
   }
 
   .floating-card {
-    @apply artisan-card hover:shadow-warm hover:-translate-y-1 transition-smooth;
+    @apply artisan-card hover:shadow-warm hover:-translate-y-1 transition-bounce hover:border-primary/20;
   }
 
   .glowing-border {
     @apply border-2 border-primary/20 shadow-glow;
+  }
+
+  /* Modern glass morphism effects */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg;
+  }
+
+  .dark .glass-card {
+    @apply bg-black/10 border-white/10;
+  }
+
+  /* Enhanced button styles */
+  .btn-gradient {
+    @apply bg-gradient-primary text-primary-foreground hover:shadow-warm transition-bounce;
+  }
+
+  .btn-glass {
+    @apply bg-white/20 backdrop-blur-md border border-white/30 text-foreground hover:bg-white/30 transition-smooth;
+  }
+
+  /* Loading animations */
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Scroll area improvements */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Modern focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Enhanced form styles */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20 transition-smooth;
+  }
+
+  /* Typography improvements */
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Modern spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
   }
 }
