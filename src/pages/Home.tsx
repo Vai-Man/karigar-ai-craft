@@ -106,7 +106,7 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button 
               size="lg" 
-              className="bg-gradient-primary hover:shadow-warm transition-bounce text-lg px-8 py-6"
+              className="bg-gradient-primary bg-primary hover:shadow-warm transition-bounce text-lg px-8 py-6 text-white"
               onClick={handleGetStarted}
               disabled={isLoading}
             >

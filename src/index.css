@@ -286,4 +286,27 @@
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8;
   }
+
+  /* Gradient utility classes */
+  .bg-gradient-primary {
+    background: #2561d8;
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .bg-gradient-primary:hover {
+    background: #3a71dc;
+  }
+
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
 }
