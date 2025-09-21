@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Sparkles, TrendingUp, MessageCircle, Palette, Users, Zap } from 'lucide-react';
+import { Sparkles, TrendingUp, MessageCircle, Palette, Users, Zap, Package, Brain, ShoppingCart } from 'lucide-react';
 import { storage } from '@/lib/storage';
 import heroImage from '@/assets/hero-artisans.jpg';
 
@@ -26,19 +26,19 @@ const Home = () => {
 
   const features = [
     {
-      icon: Sparkles,
+      icon: Package,
       title: 'AI Product Listings',
       description: 'Generate compelling product descriptions and SEO-optimized titles using advanced AI technology.',
       color: 'bg-gradient-warm',
     },
     {
-      icon: TrendingUp,
+      icon: Brain,
       title: 'Business Insights',
       description: 'Get personalized tips on pricing, marketing, and growing your artisan business online.',
       color: 'bg-gradient-primary',
     },
     {
-      icon: MessageCircle,
+      icon: ShoppingCart,
       title: 'Customer Support',
       description: 'AI-powered chat assistant to help you engage with customers and grow your business.',
       color: 'bg-gradient-hero',
@@ -121,14 +121,6 @@ const Home = () => {
             >
               {isLoading ? 'Loading...' : 'Start Your Journey'}
             </Button>
-            
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary/20 hover:bg-primary/5 text-lg px-8 py-6"
-            >
-              Watch Demo
-            </Button>
           </div>
 
           {/* Stats */}
@@ -158,7 +150,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
             {features.map((feature, index) => (
               <Card key={index} className="floating-card border-0 overflow-hidden">
                 <CardContent className="p-8">
@@ -171,6 +163,41 @@ const Home = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Additional Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="text-center p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-border/50">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="font-semibold mb-2">Smart Analytics</h4>
+              <p className="text-sm text-muted-foreground">Track performance with AI insights</p>
+            </div>
+
+            <div className="text-center p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-border/50">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <Palette className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="font-semibold mb-2">Beautiful Listings</h4>
+              <p className="text-sm text-muted-foreground">Create stunning product displays</p>
+            </div>
+
+            <div className="text-center p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-border/50">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="font-semibold mb-2">Growth Strategies</h4>
+              <p className="text-sm text-muted-foreground">Personalized business guidance</p>
+            </div>
+
+            <div className="text-center p-6 rounded-lg bg-background/50 backdrop-blur-sm border border-border/50">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <MessageCircle className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="font-semibold mb-2">24/7 AI Assistant</h4>
+              <p className="text-sm text-muted-foreground">Get help whenever you need it</p>
+            </div>
           </div>
         </div>
       </section>

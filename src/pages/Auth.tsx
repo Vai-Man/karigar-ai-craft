@@ -230,13 +230,6 @@ const Auth = () => {
             </div>
           </CardContent>
         </Card>
-
-        {/* Demo Info */}
-        <div className="mt-6 text-center">
-          <p className="text-white/60 text-sm">
-            Demo version - Use any credentials to continue
-          </p>
-        </div>
       </div>
     </div>
   );

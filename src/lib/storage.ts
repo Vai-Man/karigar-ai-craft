@@ -94,7 +94,101 @@ export class StorageService {
 
   getProducts(): Product[] {
     const productsData = localStorage.getItem(this.storageKeys.products);
-    return productsData ? JSON.parse(productsData) : [];
+    const products = productsData ? JSON.parse(productsData) : [];
+    
+    // If no products exist, initialize with sample data
+    if (products.length === 0) {
+      return this.initializeDefaultProducts();
+    }
+    
+    return products;
+  }
+
+  private initializeDefaultProducts(): Product[] {
+    const defaultProducts: Product[] = [
+      {
+        id: this.generateId(),
+        title: "Handwoven Cotton Scarf",
+        description: "Beautiful handwoven cotton scarf made using traditional techniques passed down through generations. Perfect for any season, this lightweight yet warm scarf features intricate patterns and natural dyes.",
+        price: "1500",
+        category: "textiles",
+        keywords: ["handwoven", "cotton", "scarf", "traditional", "natural dyes"],
+        hashtags: ["#handmade", "#sustainable", "#artisan", "#fashion"],
+        seoSuggestion: "Include 'eco-friendly' and 'fair trade' to attract environmentally conscious buyers",
+        pricingTips: ["Consider bundling with matching accessories", "Highlight the time invested in creation"],
+        createdAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(), // 7 days ago
+        updatedAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+        views: 45
+      },
+      {
+        id: this.generateId(),
+        title: "Ceramic Tea Set",
+        description: "Handcrafted ceramic tea set with traditional glazing techniques. Includes teapot, 4 cups, and serving tray. Each piece is unique with subtle variations that showcase the artisan's skill.",
+        price: "3500",
+        category: "pottery",
+        keywords: ["ceramic", "tea set", "handcrafted", "pottery", "glazed"],
+        hashtags: ["#pottery", "#ceramic", "#teatime", "#handmade"],
+        seoSuggestion: "Add 'gift set' and 'housewarming' for broader appeal",
+        pricingTips: ["Position as premium artisan piece", "Emphasize uniqueness of each set"],
+        createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(), // 5 days ago
+        updatedAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+        views: 67
+      },
+      {
+        id: this.generateId(),
+        title: "Carved Wooden Jewelry Box",
+        description: "Exquisitely carved wooden jewelry box made from sustainable teak wood. Features multiple compartments and traditional motifs. Perfect for storing precious jewelry and small treasures.",
+        price: "2800",
+        category: "woodwork",
+        keywords: ["carved", "wooden", "jewelry box", "teak", "sustainable"],
+        hashtags: ["#woodwork", "#sustainable", "#jewelry", "#storage"],
+        seoSuggestion: "Include 'organization' and 'bedroom decor' keywords",
+        pricingTips: ["Highlight the sustainability aspect", "Compare with mass-produced alternatives"],
+        createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(), // 3 days ago
+        updatedAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+        views: 32
+      },
+      {
+        id: this.generateId(),
+        title: "Silver Wire Wrapped Pendant",
+        description: "Delicate silver wire wrapped pendant featuring a natural gemstone. Each pendant is carefully crafted by hand, making every piece one-of-a-kind. Comes with a matching silver chain.",
+        price: "1200",
+        category: "jewelry",
+        keywords: ["silver", "wire wrapped", "pendant", "gemstone", "handcrafted"],
+        hashtags: ["#jewelry", "#silver", "#gemstone", "#boho"],
+        seoSuggestion: "Add 'birthday gift' and 'personalized jewelry' for gift market",
+        pricingTips: ["Offer customization with different gemstones", "Create matching sets"],
+        createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(), // 1 day ago
+        updatedAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+        views: 18
+      },
+      {
+        id: this.generateId(),
+        title: "Hand-painted Canvas Tote Bag",
+        description: "Eco-friendly canvas tote bag featuring original hand-painted designs. Made from 100% organic cotton canvas with reinforced handles. Perfect for shopping, beach trips, or everyday use.",
+        price: "800",
+        category: "textiles",
+        keywords: ["hand-painted", "canvas", "tote bag", "eco-friendly", "organic cotton"],
+        hashtags: ["#ecofriendly", "#handpainted", "#totebag", "#sustainable"],
+        seoSuggestion: "Include 'reusable shopping bag' and 'zero waste' for eco-conscious buyers",
+        pricingTips: ["Offer custom designs for higher prices", "Bundle with smaller accessories"],
+        createdAt: new Date().toISOString(), // Today
+        updatedAt: new Date().toISOString(),
+        views: 8
+      }
+    ];
+
+    // Save default products to localStorage
+    localStorage.setItem(this.storageKeys.products, JSON.stringify(defaultProducts));
+    
+    // Update analytics to reflect the default products
+    this.updateAnalytics('product_created');
+    this.updateAnalytics('product_created');
+    this.updateAnalytics('product_created');
+    this.updateAnalytics('product_created');
+    this.updateAnalytics('product_created');
+
+    return defaultProducts;
   }
 
   updateProduct(id: string, updates: Partial<Product>): Product | null {

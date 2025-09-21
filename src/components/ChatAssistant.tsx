@@ -8,6 +8,7 @@ import { Send, Bot, User, Trash2, Sparkles, MessageCircle } from 'lucide-react';
 import { geminiService } from '@/lib/gemini';
 import { storage, type ChatMessage } from '@/lib/storage';
 import { useToast } from '@/hooks/use-toast';
+import { marked } from 'marked';
 
 interface Message {
   id: string;
@@ -158,12 +159,21 @@ export const ChatAssistant = () => {
   ];
 
   const formatMessage = (content: string) => {
-    return content.split('\n').map((line, index) => (
-      <span key={index}>
-        {line}
-        {index < content.split('\n').length - 1 && <br />}
-      </span>
-    ));
+    // Configure marked for inline parsing
+    marked.setOptions({
+      breaks: true,
+      gfm: true
+    });
+    
+    // Parse markdown and return dangerously set innerHTML
+    const htmlContent = marked.parse(content, { async: false }) as string;
+    
+    return (
+      <div 
+        className="prose prose-sm max-w-none dark:prose-invert prose-p:my-1 prose-strong:text-current"
+        dangerouslySetInnerHTML={{ __html: htmlContent }}
+      />
+    );
   };
 
   return (
