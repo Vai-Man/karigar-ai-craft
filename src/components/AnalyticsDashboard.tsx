@@ -291,30 +291,32 @@ export const AnalyticsDashboard = () => {
           </CardHeader>
           <CardContent>
             {topProducts.length > 0 ? (
-              <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={topProducts} layout="horizontal">
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                  <YAxis 
-                    type="category" 
-                    dataKey="name" 
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={12}
-                    width={100}
-                  />
-                  <Tooltip 
-                    formatter={(value) => [value, 'Views']}
-                    contentStyle={{
-                      backgroundColor: 'hsl(var(--background))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px'
-                    }}
-                  />
-                  <Bar dataKey="views" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+              <div style={{ width: '100%', height: '250px' }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={topProducts} layout="horizontal">
+                    <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                    <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                    <YAxis 
+                      type="category" 
+                      dataKey="name" 
+                      stroke="hsl(var(--muted-foreground))"
+                      fontSize={12}
+                      width={100}
+                    />
+                    <Tooltip 
+                      formatter={(value: number) => [value, 'Views']}
+                      contentStyle={{
+                        backgroundColor: 'hsl(var(--background))',
+                        border: '1px solid hsl(var(--border))',
+                        borderRadius: '8px'
+                      }}
+                    />
+                    <Bar dataKey="views" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
             ) : (
-              <div className="h-[250px] flex items-center justify-center">
+              <div className="flex items-center justify-center" style={{ height: '250px' }}>
                 <p className="text-muted-foreground">No product data available</p>
               </div>
             )}

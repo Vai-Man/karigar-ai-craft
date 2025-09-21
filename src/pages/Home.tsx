@@ -112,7 +112,7 @@ const Home = () => {
             designed specifically for local artisans.
           </p>
           
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-16">
             <Button 
               size="lg" 
               className="bg-gradient-primary hover:shadow-warm transition-bounce text-lg px-8 py-6"
@@ -121,6 +121,96 @@ const Home = () => {
             >
               {isLoading ? 'Loading...' : 'Start Your Journey'}
             </Button>
+          </div>
+
+          {/* Value Proposition Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center p-6 floating-card">
+              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Sparkles className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">AI-Powered</h3>
+              <p className="text-muted-foreground text-sm">Leverage cutting-edge AI to create compelling product descriptions and marketing content</p>
+            </div>
+            <div className="text-center p-6 floating-card">
+              <div className="w-16 h-16 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Business Growth</h3>
+              <p className="text-muted-foreground text-sm">Get personalized insights and strategies to scale your artisan business online</p>
+            </div>
+            <div className="text-center p-6 floating-card">
+              <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
+                <MessageCircle className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold mb-2">24/7 Support</h3>
+              <p className="text-muted-foreground text-sm">Access our AI assistant anytime for instant help with your business questions</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Empowering Artisans{' '}
+              <span className="text-gradient">Across India</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Real stories from artisans who have transformed their traditional crafts into thriving digital businesses
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="floating-card p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mr-4">
+                  <span className="text-white font-semibold">P</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Priya Sharma</h4>
+                  <p className="text-sm text-muted-foreground">Textile Artisan, Rajasthan</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground italic">
+                "Karigar.AI helped me create beautiful product descriptions that increased my online sales by 300%. 
+                The AI suggestions are incredible!"
+              </p>
+            </div>
+
+            <div className="floating-card p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-warm rounded-full flex items-center justify-center mr-4">
+                  <span className="text-white font-semibold">R</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Raj Kumar</h4>
+                  <p className="text-sm text-muted-foreground">Pottery Artist, Gujarat</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground italic">
+                "The business insights feature taught me how to price my pottery correctly. 
+                Now I'm earning 5x more than before!"
+              </p>
+            </div>
+
+            <div className="floating-card p-6">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-gradient-hero rounded-full flex items-center justify-center mr-4">
+                  <span className="text-white font-semibold">M</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold">Maya Devi</h4>
+                  <p className="text-sm text-muted-foreground">Jewelry Maker, Kerala</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground italic">
+                "The AI chat assistant is like having a business mentor available 24/7. 
+                It helped me expand to international markets!"
+              </p>
+            </div>
           </div>
         </div>
       </section>
