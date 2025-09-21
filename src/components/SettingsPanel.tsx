@@ -38,7 +38,7 @@ export const SettingsPanel = () => {
     return {
       theme: savedTheme || 'light',
       language: 'en',
-      region: 'US',
+      region: 'IN', // Default to India
       notifications: {
         email: true,
         push: true,
