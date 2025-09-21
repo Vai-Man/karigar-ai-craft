@@ -173,7 +173,7 @@ export const SettingsPanel = () => {
           <h2 className="text-3xl font-bold">Settings</h2>
           <p className="text-muted-foreground">Manage your account and preferences</p>
         </div>
-        <Button onClick={handleSave} className="bg-gradient-primary">
+        <Button onClick={handleSave} variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
           <Save className="w-4 h-4 mr-2" />
           Save Changes
         </Button>

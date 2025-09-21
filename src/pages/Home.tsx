@@ -112,7 +112,7 @@ const Home = () => {
             designed specifically for local artisans.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex justify-center mb-12">
             <Button 
               size="lg" 
               className="bg-gradient-primary hover:shadow-warm transition-bounce text-lg px-8 py-6"
@@ -121,17 +121,6 @@ const Home = () => {
             >
               {isLoading ? 'Loading...' : 'Start Your Journey'}
             </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div key={index} className="floating-card p-6 text-center">
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -154,10 +143,6 @@ const Home = () => {
             {features.map((feature, index) => (
               <Card key={index} className="floating-card border-0 overflow-hidden">
                 <CardContent className="p-8">
-                  <div className={`w-16 h-16 ${feature.color} rounded-xl flex items-center justify-center mb-6 shadow-soft`}>
-                    <feature.icon className="w-8 h-8 text-white" />
-                  </div>
-                  
                   <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </CardContent>

@@ -269,7 +269,7 @@ export const ProductManager = () => {
           </Button>
           <Dialog open={isAddingProduct} onOpenChange={setIsAddingProduct}>
             <DialogTrigger asChild>
-              <Button className="bg-gradient-primary" onClick={() => setIsAddingProduct(true)}>
+              <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => setIsAddingProduct(true)}>
                 <Plus className="w-4 h-4 mr-2" />
                 Add Product
               </Button>
@@ -389,7 +389,7 @@ export const ProductManager = () => {
                         </>
                       )}
                     </Button>
-                    <Button type="button" onClick={handleSaveProduct} className="bg-gradient-primary">
+                    <Button type="button" onClick={handleSaveProduct} variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
                       {editingProduct ? 'Update' : 'Save'} Product
                     </Button>
                   </div>

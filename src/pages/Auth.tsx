@@ -204,7 +204,8 @@ const Auth = () => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-primary hover:shadow-warm transition-bounce"
+                variant="default"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-warm transition-bounce"
                 disabled={isLoading}
               >
                 {isLoading 
