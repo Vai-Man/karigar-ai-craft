@@ -76,7 +76,7 @@ const Dashboard = () => {
                 <Settings className="w-4 h-4 mr-2" />
                 Settings
               </Button>
-              <Button variant="outline" size="sm" onClick={handleLogout}>
+              <Button size="sm" onClick={handleLogout}>
                 <LogOut className="w-4 h-4 mr-2" />
                 Logout
               </Button>
@@ -175,7 +175,7 @@ const Dashboard = () => {
                     <CardTitle>Recent Products</CardTitle>
                     <CardDescription>Your latest product listings</CardDescription>
                   </div>
-                  <Button onClick={() => setActiveTab('products')} variant="outline" size="sm">
+                  <Button onClick={() => setActiveTab('products')} size="sm">
                     <Plus className="w-4 h-4 mr-2" />
                     Add Product
                   </Button>

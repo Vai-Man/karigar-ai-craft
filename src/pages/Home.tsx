@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Sparkles, TrendingUp, MessageCircle, Palette, Users, Zap, Package, Brain, ShoppingCart } from 'lucide-react';
+import { Sparkles, TrendingUp, MessageCircle, Palette, Brain } from 'lucide-react';
 import { storage } from '@/lib/storage';
 import heroImage from '@/assets/hero-artisans.jpg';
 
@@ -26,29 +26,20 @@ const Home = () => {
 
   const features = [
     {
-      icon: Package,
       title: 'AI Product Listings',
       description: 'Generate compelling product descriptions and SEO-optimized titles using advanced AI technology.',
       color: 'bg-gradient-warm',
     },
     {
-      icon: Brain,
       title: 'Business Insights',
       description: 'Get personalized tips on pricing, marketing, and growing your artisan business online.',
       color: 'bg-gradient-primary',
     },
     {
-      icon: ShoppingCart,
       title: 'Customer Support',
       description: 'AI-powered chat assistant to help you engage with customers and grow your business.',
       color: 'bg-gradient-hero',
     },
-  ];
-
-  const stats = [
-    { label: 'Local Artisans Empowered', value: '10,000+', icon: Users },
-    { label: 'Products Listed', value: '50,000+', icon: Palette },
-    { label: 'Business Tips Generated', value: '100,000+', icon: Zap },
   ];
 
   return (
@@ -70,12 +61,12 @@ const Home = () => {
                   <Button variant="ghost" asChild>
                     <Link to="/dashboard">Dashboard</Link>
                   </Button>
-                  <Button variant="outline" onClick={() => storage.logout()}>
+                  <Button onClick={() => storage.logout()}>
                     Logout
                   </Button>
                 </>
               ) : (
-                <Button variant="outline" asChild>
+                <Button asChild>
                   <Link to="/auth">Login</Link>
                 </Button>
               )}
@@ -122,17 +113,6 @@ const Home = () => {
               {isLoading ? 'Loading...' : 'Start Your Journey'}
             </Button>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div key={index} className="floating-card p-6 text-center">
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -154,10 +134,6 @@ const Home = () => {
             {features.map((feature, index) => (
               <Card key={index} className="floating-card border-0 overflow-hidden">
                 <CardContent className="p-8">
-                  <div className={`w-16 h-16 ${feature.color} rounded-xl flex items-center justify-center mb-6 shadow-soft`}>
-                    <feature.icon className="w-8 h-8 text-white" />
-                  </div>
-                  
                   <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </CardContent>

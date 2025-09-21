@@ -263,7 +263,7 @@ export const ProductManager = () => {
           <p className="text-muted-foreground">Create and manage your product listings with AI assistance</p>
         </div>
         <div className="flex items-center space-x-2">
-          <Button variant="outline" onClick={exportData} size="sm">
+          <Button onClick={exportData} size="sm">
             <Download className="w-4 h-4 mr-2" />
             Export Data
           </Button>
@@ -340,7 +340,6 @@ export const ProductManager = () => {
                     <div className="flex items-center space-x-2">
                       <Button
                         type="button"
-                        variant="outline"
                         onClick={() => fileInputRef.current?.click()}
                         className="flex-1"
                       >
