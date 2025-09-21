@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Lightbulb, TrendingUp, Package, DollarSign, Users, Sparkles, RefreshCw } from 'lucide-react';
 import { geminiService, type BusinessTip } from '@/lib/gemini';
 import { storage } from '@/lib/storage';
@@ -228,6 +229,13 @@ export const BusinessTips = () => {
     return cat ? cat.icon : Lightbulb;
   };
 
+  const handleLearnMore = (tip: BusinessTip) => {
+    toast({
+      title: "Learn More About: " + tip.title,
+      description: "This feature would open detailed guidance for implementing this business tip. Coming soon with expanded tutorials and step-by-step guides!",
+    });
+  };
+
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -400,7 +408,12 @@ export const BusinessTips = () => {
                       <Badge variant="outline" className="text-xs">
                         {categories.find(c => c.value === tip.category)?.label || tip.category}
                       </Badge>
-                      <Button variant="ghost" size="sm" className="text-xs text-primary">
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="text-xs text-primary"
+                        onClick={() => handleLearnMore(tip)}
+                      >
                         Learn More →
                       </Button>
                     </div>

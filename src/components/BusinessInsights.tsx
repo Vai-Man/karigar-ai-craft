@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
+import { useToast } from '@/hooks/use-toast';
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -34,6 +35,7 @@ interface InsightData {
 export const BusinessInsights = () => {
   const [insights, setInsights] = useState<InsightData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
   
   const analytics = storage.getAnalytics();
   const products = storage.getProducts();
@@ -123,6 +125,22 @@ export const BusinessInsights = () => {
       case 'pricing': return DollarSign;
       case 'customer': return Star;
       default: return Lightbulb;
+    }
+  };
+
+  const handleTakeAction = (insight: InsightData) => {
+    toast({
+      title: "Action Initiated: " + insight.title,
+      description: `Taking action on: ${insight.description}. This would guide you through implementing this business improvement.`,
+    });
+    
+    // Update the insight progress if it's actionable
+    if (insight.actionable) {
+      setInsights(prev => prev.map(item => 
+        item.id === insight.id 
+          ? { ...item, progress: Math.min((item.progress || 0) + 25, 100) }
+          : item
+      ));
     }
   };
 
@@ -248,7 +266,11 @@ export const BusinessInsights = () => {
                   </div>
                   
                   {insight.actionable && (
-                    <Button size="sm" variant="outline">
+                    <Button 
+                      size="sm" 
+                      className="bg-gradient-primary"
+                      onClick={() => handleTakeAction(insight)}
+                    >
                       Take Action
                     </Button>
                   )}

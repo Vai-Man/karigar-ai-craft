@@ -290,27 +290,52 @@ export const AnalyticsDashboard = () => {
             <CardDescription>Products with the most views</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="text-xs text-muted-foreground mb-2">
+              Data points: {topProducts.length}
+            </div>
             {topProducts.length > 0 ? (
-              <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={topProducts} layout="horizontal">
-                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                  <XAxis type="number" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+              <ResponsiveContainer width="100%" height={280} minHeight={250}>
+                <BarChart 
+                  data={topProducts} 
+                  layout="horizontal" 
+                  margin={{ top: 10, right: 40, left: 150, bottom: 20 }}
+                  barCategoryGap="20%"
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" opacity={0.5} />
+                  <XAxis 
+                    type="number" 
+                    stroke="#64748b" 
+                    fontSize={12}
+                    domain={[0, 'dataMax + 5']}
+                    tickCount={5}
+                  />
                   <YAxis 
                     type="category" 
                     dataKey="name" 
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={12}
-                    width={100}
+                    stroke="#64748b"
+                    fontSize={11}
+                    width={140}
+                    tickMargin={5}
                   />
                   <Tooltip 
                     formatter={(value) => [value, 'Views']}
+                    labelFormatter={(label) => `Product: ${label}`}
                     contentStyle={{
-                      backgroundColor: 'hsl(var(--background))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px'
+                      backgroundColor: 'white',
+                      border: '1px solid #e2e8f0',
+                      borderRadius: '8px',
+                      fontSize: '12px',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                     }}
                   />
-                  <Bar dataKey="views" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
+                  <Bar 
+                    dataKey="views" 
+                    fill="#2561d8" 
+                    radius={[0, 6, 6, 0]}
+                    minPointSize={8}
+                    stroke="#1e40af"
+                    strokeWidth={1}
+                  />
                 </BarChart>
               </ResponsiveContainer>
             ) : (

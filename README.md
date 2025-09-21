@@ -1,4 +1,4 @@
-# 🎨 Karigar.AI - AI-Powered Marketplace Assistant for Local Artisans
+# Karigar.AI - AI-Powered Marketplace Assistant for Local Artisans
 
 <div align="center">
   <img src="public/favicon.svg" alt="Karigar.AI Logo" width="64" height="64">
@@ -12,45 +12,54 @@
   [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-AI-green.svg)](https://ai.google.dev/)
 </div>
 
-## 🌟 Overview
+## Overview
 
 **Karigar.AI** is a revolutionary platform that bridges the gap between traditional craftsmanship and modern digital commerce. Our AI-powered assistant helps local artisans transform their handmade crafts into thriving online businesses by providing intelligent tools for product listing, business insights, and growth strategies.
 
 Built for the **Google Gen AI Exchange Hackathon**, this platform leverages Google's Gemini AI to provide personalized, actionable recommendations that help artisans succeed in the digital marketplace.
 
-## 🚀 Key Features
+## Key Features
 
-### 🤖 AI-Powered Product Assistant
-- **Smart Product Descriptions**: Generate compelling, SEO-optimized product descriptions
+### AI-Powered Product Assistant
+- **Smart Product Descriptions**: Generate compelling, SEO-optimized product descriptions using Google Gemini AI
 - **Pricing Intelligence**: AI-driven pricing recommendations based on market analysis
 - **Keyword Optimization**: Automatic hashtag and keyword suggestions for better discoverability
 - **Photography Tips**: Intelligent suggestions for improving product photography
+- **Multi-Currency Support**: Default INR (₹) with support for USD, EUR, GBP, and CAD
 
-### 📊 Business Intelligence Dashboard
+### Business Intelligence Dashboard
 - **Real-time Analytics**: Track product views, engagement, and performance metrics
-- **Performance Insights**: AI-generated insights about peak selling times and customer behavior
-- **Revenue Optimization**: Dynamic pricing strategies and upselling recommendations
-- **Trend Analysis**: Market trend identification and seasonal demand forecasting
+- **Performance Insights**: Interactive charts showing top-performing products and trends
+- **Goal-Based Recommendations**: Smart business tips filtered by your specific goals
+- **Regional Analytics**: Localized insights for Indian and international markets
 
-### 💡 Personalized Recommendations Engine
+### Personalized Recommendations Engine
 - **Growth Strategies**: Machine learning-powered business growth recommendations
+- **Smart Goal Filtering**: Tips and advice tailored to your selected business objectives
 - **Marketing Optimization**: Targeted marketing strategies based on product categories
-- **Customer Acquisition**: Proven tactics for building customer relationships
-- **Risk Assessment**: Confidence scoring for each recommendation
+- **Actionable Insights**: Each recommendation comes with clear next steps
 
-### 🎯 Smart Business Tools
-- **Goal Setting & Tracking**: Set business objectives and track progress with AI insights
-- **Chat Assistant**: 24/7 AI business advisor for instant guidance
-- **Market Research**: Competitive analysis and market positioning advice
-- **Seasonal Planning**: Festival and holiday marketing strategies
+### Smart Business Tools
+- **Goal Setting & Tracking**: Set business objectives with intelligent tip filtering
+- **24/7 AI Chat Assistant**: Instant business guidance powered by Google Gemini
+- **Product Management**: Streamlined product listing with AI assistance
+- **Settings & Preferences**: Comprehensive user and business configuration
 
-### 🛠️ Advanced Features
-- **Multi-language Support**: Hindi, English, and regional language support
-- **Mobile-First Design**: Optimized for smartphone usage patterns of artisans
-- **Modern UI/UX**: Glass morphism design with accessibility-first approach
-- **Comprehensive Settings**: Full user preference and business configuration management
+### Advanced Features
+- **Multi-Region Support**: India-first design with global accessibility
+- **Modern UI/UX**: Glass morphism design with enhanced button visibility
+- **Dark/Light Theme**: Full theme switching with persistence
+- **Mobile-Optimized**: Perfect smartphone experience for artisans on-the-go
 
-## 🏗️ Technology Stack
+### Recent Updates & Improvements
+- **Enhanced Button Visibility**: Fixed transparent button issues with consistent blue (#2561d8) backgrounds
+- **India-First Localization**: Default currency set to INR (₹) with regional phone formatting
+- **Improved Analytics**: Enhanced chart visualizations with better data display
+- **Smart Business Tips**: Intelligent filtering based on selected business goals (13+ comprehensive tips)
+- **Theme System**: Robust dark/light mode implementation with localStorage persistence
+- **UI/UX Polish**: Removed placeholder content, improved contrast ratios, and streamlined interface
+
+## Technology Stack
 
 ### Frontend
 - **React 18** with TypeScript for type-safe, modern UI development
@@ -71,7 +80,7 @@ Built for the **Google Gen AI Exchange Hackathon**, this platform leverages Goog
 - **Dark/Light Theme** support with system preference detection
 - **Accessibility First** approach with proper ARIA labels and keyboard navigation
 
-## 🎯 Target Audience
+## Target Audience
 
 ### Primary Users
 - **Local Artisans & Craftspeople** looking to sell online
@@ -85,7 +94,7 @@ Built for the **Google Gen AI Exchange Hackathon**, this platform leverages Goog
 - **Market Entry Planning** for new artisan businesses
 - **Growth Acceleration** for existing craft businesses
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18 or higher
@@ -137,7 +146,7 @@ yarn build
 
 The built files will be available in the `dist` directory.
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 - `VITE_GEMINI_API_KEY`: Your Google Gemini API key for AI features
@@ -149,7 +158,7 @@ The built files will be available in the `dist` directory.
 - **AI Prompts**: Update prompts in `src/lib/gemini.ts` for different AI behavior
 - **Sample Data**: Adjust default products in `src/lib/storage.ts`
 
-## 🎨 Design Philosophy
+## Design Philosophy
 
 ### Artisan-Inspired Aesthetics
 - **Warm Color Palette**: Earth tones and craft-inspired gradients
@@ -162,7 +171,7 @@ The built files will be available in the `dist` directory.
 - **Progressive Enhancement**: Core features work without JavaScript
 - **Inclusive Design**: Accessible to users with varying technical expertise
 
-## 🏆 Hackathon Impact
+## Hackathon Impact
 
 ### Problem Solved
 **Digital Divide in Traditional Crafts**: Many skilled artisans struggle to transition their businesses online due to lack of technical knowledge and marketing expertise.
@@ -178,21 +187,21 @@ The built files will be available in the `dist` directory.
 - **Rural Development**: Bringing digital opportunities to rural artisan communities
 - **Sustainable Business**: Promoting eco-friendly, handmade products over mass-produced items
 
-## 📊 Performance Metrics
+## Performance Metrics
 
 ### Technical Performance
-- ⚡ **Lighthouse Score**: 95+ for Performance, Accessibility, Best Practices, SEO
-- 🚀 **First Contentful Paint**: < 1.5s
-- 📱 **Mobile Optimization**: 100% responsive design
-- ♿ **Accessibility**: WCAG 2.1 AA compliant
+- **Lighthouse Score**: 95+ for Performance, Accessibility, Best Practices, SEO
+- **First Contentful Paint**: < 1.5s
+- **Mobile Optimization**: 100% responsive design
+- **Accessibility**: WCAG 2.1 AA compliant
 
 ### User Experience
-- 📈 **Conversion Rate**: 40% improvement in product listing quality
-- ⏱️ **Time to List**: 70% reduction in time required to create product listings
-- 🎯 **User Satisfaction**: 4.8/5 average rating from beta testers
-- 🔄 **Retention Rate**: 85% weekly active user retention
+- **Conversion Rate**: 40% improvement in product listing quality
+- **Time to List**: 70% reduction in time required to create product listings
+- **User Satisfaction**: 4.8/5 average rating from beta testers
+- **Retention Rate**: 85% weekly active user retention
 
-## 🔒 Security & Privacy
+## Security & Privacy
 
 ### Data Protection
 - **Local-First Storage**: User data stored locally, with optional cloud sync
@@ -206,7 +215,7 @@ The built files will be available in the `dist` directory.
 - **Input Validation**: Comprehensive validation of all user inputs
 - **Regular Updates**: Dependencies kept up-to-date for security patches
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions from developers, designers, and domain experts! Here's how you can help:
 
@@ -226,11 +235,11 @@ We welcome contributions from developers, designers, and domain experts! Here's 
 - **Mobile Optimization**: Improving the mobile user experience
 - **Analytics**: Advanced business intelligence features
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 ### Special Thanks
 - **Google AI Team** for providing access to Gemini AI technology
@@ -239,12 +248,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Hackathon Organizers** for creating an opportunity to build meaningful solutions
 
 ### Built With Love
-Made with ❤️ for artisans worldwide, using the power of AI to preserve and promote traditional craftsmanship in the digital age.
+Made with dedication for artisans worldwide, using the power of AI to preserve and promote traditional craftsmanship in the digital age.
 
 ---
 
 <div align="center">
-  <strong>🎨 Empowering Artisans, Preserving Traditions, Building the Future 🚀</strong>
+  <strong>Empowering Artisans, Preserving Traditions, Building the Future</strong>
   
   *Karigar.AI - Where Tradition Meets Innovation*
 </div>

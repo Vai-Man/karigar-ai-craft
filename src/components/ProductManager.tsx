@@ -42,7 +42,7 @@ export const ProductManager = () => {
         default: return '$';
       }
     }
-    return '$'; // Default to USD
+    return '₹'; // Default to INR (Rupee)
   };
 
   const categories = [

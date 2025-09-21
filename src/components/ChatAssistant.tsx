@@ -177,7 +177,7 @@ export const ChatAssistant = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-full overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -195,7 +195,7 @@ export const ChatAssistant = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-full overflow-hidden">
         {/* Chat Interface */}
         <Card className="artisan-card lg:col-span-3">
           <CardHeader className="border-b border-border/50">
@@ -301,16 +301,16 @@ export const ChatAssistant = () => {
               Quick Questions
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-2">
+          <CardContent className="space-y-2 overflow-hidden">
             {suggestedQuestions.map((question, index) => (
               <Button
                 key={index}
                 variant="ghost"
-                className="w-full text-left h-auto p-2 justify-start text-sm text-muted-foreground hover:text-foreground"
+                className="w-full text-left h-auto p-3 justify-start text-sm text-muted-foreground hover:text-foreground whitespace-normal leading-relaxed break-words max-w-full overflow-hidden"
                 onClick={() => setInputMessage(question)}
                 disabled={isLoading}
               >
-                {question}
+                <span className="break-words w-full block overflow-hidden">{question}</span>
               </Button>
             ))}
           </CardContent>
